@@ -1,5 +1,6 @@
 import { adminClient } from "@/lib/supabase";
 import { Sidebar } from "../page";
+import { UserActions } from "./UserActions";
 
 export const dynamic = "force-dynamic";
 
@@ -63,6 +64,7 @@ export default async function UsersPage() {
                 <th className="text-left px-5 py-3.5 text-xs font-bold text-gray-400 uppercase tracking-wider">Signed Up</th>
                 <th className="text-left px-5 py-3.5 text-xs font-bold text-gray-400 uppercase tracking-wider">Last Active</th>
                 <th className="text-left px-5 py-3.5 text-xs font-bold text-gray-400 uppercase tracking-wider">Provider</th>
+                <th className="px-5 py-3.5"></th>
               </tr>
             </thead>
             <tbody>
@@ -74,6 +76,9 @@ export default async function UsersPage() {
                   <td className="px-5 py-3.5 text-gray-500">{fmt(u.last_sign_in)}</td>
                   <td className="px-5 py-3.5">
                     <span className="text-xs font-medium text-gray-400 capitalize">{u.provider}</span>
+                  </td>
+                  <td className="px-5 py-3.5 text-right">
+                    <UserActions userId={u.id} status={u.sub?.status} />
                   </td>
                 </tr>
               ))}
