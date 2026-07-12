@@ -1,6 +1,8 @@
 import { adminClient } from "@/lib/supabase";
 import { Sidebar } from "../page";
 
+export const dynamic = "force-dynamic";
+
 async function getUsers() {
   const db = adminClient();
   const { data } = await db.auth.admin.listUsers({ perPage: 1000 });

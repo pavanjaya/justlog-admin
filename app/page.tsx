@@ -1,7 +1,7 @@
 import { adminClient } from "@/lib/supabase";
 import Link from "next/link";
-import { cookies } from "next/headers";
-import { createClient } from "@supabase/supabase-js";
+
+export const dynamic = "force-dynamic";
 
 async function getStats() {
   const db = adminClient();
@@ -37,7 +37,7 @@ export default async function DashboardPage() {
         </div>
 
         <div className="grid grid-cols-2 gap-4 mb-8 lg:grid-cols-4">
-          <StatCard label="Total Users" value={stats.totalUsers} sub="+{stats.newUsers} this week" color="#9748FF" />
+          <StatCard label="Total Users" value={stats.totalUsers} sub={`+${stats.newUsers} this week`} color="#9748FF" />
           <StatCard label="On Trial" value={stats.trialing} sub="7-day free trial" color="#F59E0B" />
           <StatCard label="Paid" value={stats.paid} sub="Active subscribers" color="#10B981" />
           <StatCard label="Conversion" value={`${stats.convRate}%`} sub="Free → Paid" color="#3B82F6" />

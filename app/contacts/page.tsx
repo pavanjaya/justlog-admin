@@ -1,6 +1,8 @@
 import { adminClient } from "@/lib/supabase";
 import { Sidebar } from "../page";
 
+export const dynamic = "force-dynamic";
+
 async function getContacts() {
   const db = adminClient();
   const { data } = await db.from("contact_submissions")
