@@ -2,6 +2,6 @@ import { NextResponse } from "next/server";
 
 export async function POST() {
   const res = NextResponse.redirect(new URL("/login", process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3001"));
-  res.cookies.delete("sb-access-token");
+  res.cookies.delete("admin-token");
   return res;
 }
