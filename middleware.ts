@@ -5,7 +5,7 @@ const ADMIN_EMAIL = process.env.ADMIN_EMAIL!;
 
 export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
-  if (pathname === "/login" || pathname.startsWith("/api/")) return NextResponse.next();
+  if (pathname === "/login" || pathname === "/auth/confirm" || pathname.startsWith("/api/")) return NextResponse.next();
 
   const token = req.cookies.get("sb-access-token")?.value;
   if (!token) return NextResponse.redirect(new URL("/login", req.url));
