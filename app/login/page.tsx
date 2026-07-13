@@ -16,7 +16,8 @@ export default function LoginPage() {
     if (res.ok) {
       window.location.href = "/";
     } else {
-      setError("Wrong password");
+      const data = await res.json().catch(() => ({}));
+      setError(data.error ?? "Wrong password");
       setLoading(false);
     }
   }

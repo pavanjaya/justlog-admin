@@ -7,6 +7,7 @@ const links = [
   { href: "/", icon: "⚡", label: "Dashboard" },
   { href: "/users", icon: "👥", label: "Users" },
   { href: "/contacts", icon: "💬", label: "Contacts" },
+  { href: "/security", icon: "🔒", label: "Security" },
 ];
 
 export function Sidebar() {
